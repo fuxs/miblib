@@ -14,3 +14,4 @@
 # limitations under the License.
 #
 __all__ = ["bq"]
+__version__ = "0.0.1"
