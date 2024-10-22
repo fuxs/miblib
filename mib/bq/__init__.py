@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2024 Michael Bungenstock
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,7 +18,20 @@ from ._writer import (
     build_clazz,
     create_converter,
     build_struct_filler,
-    BQBatchWriterStream,
     BQBatchWriter,
+    BQStreamWriter,
     write_single_batch,
+    stream_single_batch,
 )
+
+__all__ = [
+    create_mapping,
+    build_desriptor_proto,
+    build_clazz,
+    create_converter,
+    build_struct_filler,
+    BQBatchWriter,
+    BQStreamWriter,
+    write_single_batch,
+    stream_single_batch,
+]

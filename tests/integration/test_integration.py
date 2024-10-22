@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2024 Michael Bungenstock
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,8 +37,8 @@ class TestBasic(unittest.TestCase):
         }
         nor = 10
         rows = [data for i in range(int(nor))]
-        bq.write_single_batch("vertexit.demo_ds.simple", rows)
-
+        bq.stream_single_batch("demo_ds.simple", rows)
+        bq.write_single_batch("demo_ds.simple", rows)
 
 if __name__ == "__main__":
     unittest.main()

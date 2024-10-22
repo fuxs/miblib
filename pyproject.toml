@@ -9,7 +9,7 @@ authors = [
 ]
 description = "miblib is a collection of usefull Python functions"
 readme = "README.md"
-license = {file = "LICENSE"}
+license = { file = "LICENSE" }
 requires-python = ">=3.8"
 keywords = ["python", "gcp"]
 
@@ -32,4 +32,10 @@ dependencies = [
 dynamic = ["version"]
 
 [tool.setuptools.dynamic]
-version = {attr = "mib.__version__"}
+version = { attr = "mib.__version__" }
+
+[tool.ruff]
+target-version = "py38"
+
+[tool.ruff.lint]
+extend-select = ["N", "B", "E", "Q", "UP", "RUF", "SIM", "C90"] # D
