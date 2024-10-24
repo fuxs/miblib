@@ -199,32 +199,6 @@ class BQStreamWriter(BQWriterBase):
         self.submit()
         return total
 
-    # def _submit(self):
-    #    number_of_rows = len(self._rows.serialized_rows)
-    #    if number_of_rows > 0:
-    #        request = types.AppendRowsRequest()
-    #        if self._exactly_once:
-    #            request.offset = self._offset
-    #            self._offset += number_of_rows
-    #        proto_data = types.AppendRowsRequest.ProtoData(rows=self._rows)
-    #        request.proto_rows = proto_data
-    #        self._futures = [f for f in self._futures if f.running()]
-    #        self._futures.append(self._rpc_stream.send(request))
-    #        print(f"Sent {number_of_rows} with {self._size} bytes")
-    #        self._rows = types.ProtoRows()
-    #        self._total_size += self._size
-    #        self._size = 0
-
-    # def close(self):
-    #    if self._rpc_stream is not None:
-    #        for f in self._futures:
-    #            f.result()
-    #        self._rpc_stream.close()
-    #        self._rpc_stream = None
-    #        if self._write_stream:
-    #            request = types.FinalizeWriteStreamRequest(name=self._stream_name)
-    #            self._wc.finalize_write_stream(request=request)
-
 
 def write_single_batch(table_id: str, data: list):
     start = time.time()

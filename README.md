@@ -31,7 +31,7 @@ default settings:
 | TIME     | ```datetime.time```|```str```   | ```lambda v: v.strftime("%T.%f")```|
 | DATETIME | ```datetime.datetime```|```str```   | ```lambda v: v.isoformat( sep=" ", timespec="milliseconds")```|
 | DATE"    | ```datetime.date```|```int```   | ```lambda v: (v - dt.datetime(1970, 1, 1)).days```|
-| TIMESTAMP| ```datetime.time```|```int```   | ```lambda v: int((v.timestamp() * 1_000_000))```|
+| TIMESTAMP| ```datetime.time```|```int```   | ```lambda v: int(v.timestamp() * 1_000_000)```|
 | JSON     | ```str```   |```str```   | ```lambda v: str(v)```|
 | GEOGRAPHY| ```str```   |```str```   | ```lambda v: str(v)```|
 | NUMERIC  | ```decimal.Decimal```|```str```   | ```lambda v: str(round(v, 9))```|
@@ -123,8 +123,9 @@ class ```BQStreamWriter``` instead:
 ```Python
 
 with bq.BQStreamWriter(table_id="demo_ds.customer") as bw:
-        bw.append(*table)
+        bw.send(*table)
 ```
 
-You can find the complete example code in the file
-[customer.py](examples/customer.py).
+The method ```send``` sends the data immediately to BigQuery and does not wait
+for more data like ```append``` does. You can find the complete example code in
+the file [customer.py](examples/customer.py).

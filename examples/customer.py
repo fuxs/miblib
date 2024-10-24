@@ -82,7 +82,7 @@ def main() -> None:
 
     # this class supports streaming for immedidate access
     with bq.BQStreamWriter(table_id="demo_ds.customer") as bw:
-        bw.append(*table)
+        bw.send(*table)
 
 if __name__ == "__main__":
     main()
